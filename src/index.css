@@ -55,6 +55,26 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.header {
+  border: 3px solid green;
+}
+
+.home {
+  border: 3px solid rgb(87, 146, 186);
+}
+
+.navigation {
+  border: 3px solid rgb(198, 203, 45);
+}
+
+.users {
+  border: 3px solid rgb(209, 62, 170);
+}
+
+.nav-link{
+  padding: 4px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
