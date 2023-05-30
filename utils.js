@@ -15,4 +15,16 @@ const fetchReviews = () => {
     });
 };
 
-export { fetchReviews };
+const fetchReviewsById = (review_id) => {
+    return gamesApi
+      .get(`/reviews/${review_id}`)
+      .then((review) => {
+        return review.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  
+
+export { fetchReviews, fetchReviewsById };
