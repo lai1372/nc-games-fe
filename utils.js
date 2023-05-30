@@ -16,15 +16,25 @@ const fetchReviews = () => {
 };
 
 const fetchReviewsById = (review_id) => {
-    return gamesApi
-      .get(`/reviews/${review_id}`)
-      .then((review) => {
-        return review.data;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  
+  return gamesApi
+    .get(`/reviews/${review_id}`)
+    .then((review) => {
+      return review.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
-export { fetchReviews, fetchReviewsById };
+const fetchCommentsByReviewId = (review_id) => {
+  return gamesApi
+    .get(`/reviews/${review_id}/comments`)
+    .then((comments) => {
+      return comments.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export { fetchReviews, fetchReviewsById, fetchCommentsByReviewId };

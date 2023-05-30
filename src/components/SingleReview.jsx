@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviewsById } from "../../utils";
+import Comments from "./Comments";
 
 const SingleReview = () => {
   const [review, setReview] = useState({});
@@ -32,6 +33,7 @@ const SingleReview = () => {
       <h4>Category: {review.category}</h4>
       <p>{review.review_body}</p>
       <p>Votes: {review.votes}</p>
+      <Comments review_id={review_id} />
     </section>
   );
 };
