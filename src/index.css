@@ -36,6 +36,10 @@ h1 {
   line-height: 1.1;
 }
 
+li {
+  list-style-type: none;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -43,7 +47,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #6b6eb4;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -53,6 +57,32 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.header {
+  border: 3px solid green;
+}
+
+.home {
+  border: 3px solid rgb(87, 146, 186);
+}
+
+.navigation {
+  border: 3px solid rgb(198, 203, 45);
+}
+
+.users {
+  border: 3px solid rgb(209, 62, 170);
+}
+
+.nav-link {
+  padding: 4px;
+}
+
+.review-list {
+  border: 1px solid rgb(255, 255, 255);
+  margin: 10px;
+  padding: 20px;
 }
 
 @media (prefers-color-scheme: light) {
