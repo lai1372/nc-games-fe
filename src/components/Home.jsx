@@ -6,12 +6,13 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchReviews().then((reviews) => {
-      setReviews(reviews.reviews);
-    })
-    .then(()=>{
+    fetchReviews()
+      .then((reviews) => {
+        setReviews(reviews.reviews);
+      })
+      .then(() => {
         setIsLoading(false);
-    });
+      });
   }, [reviews]);
 
   if (isLoading) {
@@ -22,12 +23,12 @@ const Home = () => {
       <h2>All reviews ({reviews.length})</h2>
       {reviews.map((review) => {
         return (
-          <ul className="review-list">
-            <li>Title: {review.title}</li>
-            <li> Category: {review.category}</li>
-            <li> By: {review.owner}</li>
-            <button>Read full review</button>
-          </ul>
+          <p className="review-list">
+            <p>Title: {review.title}</p>
+            <p> Category: {review.category}</p>
+            <p> By: {review.owner}</p>
+            <a href={`/reviews/${review.review_id}`}>Read full review</a>
+          </p>
         );
       })}
     </section>

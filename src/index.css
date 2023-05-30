@@ -82,7 +82,17 @@ button:focus-visible {
 .review-list {
   border: 1px solid rgb(255, 255, 255);
   margin: 10px;
-  padding: 20px;
+  padding: 5px;
+  line-height: 0.7rem;
+}
+
+.single-review-image {
+  max-width: 600px;
+}
+
+.single-review {
+  border: 2px solid salmon;
+  max-width: 600px;
 }
 
 @media (prefers-color-scheme: light) {
