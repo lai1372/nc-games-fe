@@ -95,6 +95,16 @@ button:focus-visible {
   max-width: 600px;
 }
 
+.comments-section {
+  border: 2px solid rgb(230, 20, 132);
+  text-align: left;
+}
+
+.single-comment {
+  background-color: #26106d;
+  padding: 10px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -104,6 +114,6 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #f12424;
   }
 }
