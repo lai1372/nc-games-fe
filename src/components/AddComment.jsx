@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { fetchUsers, postComment } from "../../utils";
+import { postComment } from "../../utils";
 
 const AddComment = ({ review_id, setComments }) => {
   const [newUsername, setNewUsername] = useState("grumpy19");
   const [newComment, setNewComment] = useState("");
   const [errorMsgWhiteSpace, setErrorMsgWhiteSpace] = useState(null);
   const [errorMsgCharacter, setErrorMsgCharacter] = useState(null);
-  const [characterLength, setCharacterLength] = useState(0);
+  const [postError, setPostError] = useState(null);
+
   const [buttonDisable, setButtonDisable] = useState(false);
 
   const handleSubmit = (event) => {
@@ -18,19 +19,21 @@ const AddComment = ({ review_id, setComments }) => {
 
     postComment(review_id, commentToPost)
       .then((response) => {
+        setPostError(null);
         setComments((currentComments) => {
-          return [response.data.comment, ...currentComments];
+          return [...currentComments, response.data.comment];
         });
       })
-      .catch((err) => console.log(err));
+      .catch(() => {
+        setPostError("Oops! Unable to post comment");
+      });
 
-    setNewUsername("");
     setNewComment("");
   };
 
   const handleCommentValidation = (event) => {
     const regex1 = /^\s*$/;
-    const regex2 = /.{30,}/gi;
+    const regex2 = /.{10,}/gi;
 
     if (regex1.test(event.target.value) === true) {
       setErrorMsgWhiteSpace("Please type something!");
@@ -42,7 +45,6 @@ const AddComment = ({ review_id, setComments }) => {
     if (regex2.test(event.target.value) === false) {
       setErrorMsgCharacter("Please type more than 30 characters");
       setButtonDisable(true);
-      setCharacterLength(event.target.value.length);
     } else {
       setButtonDisable(false);
       setErrorMsgCharacter(null);
@@ -53,6 +55,7 @@ const AddComment = ({ review_id, setComments }) => {
       <h2>Comment section</h2>
       <p>{errorMsgCharacter}</p>
       <p>{errorMsgWhiteSpace}</p>
+      <p>{postError}</p>
       <form onSubmit={handleSubmit} className="form">
         <p>
           Logged in as <strong>{newUsername}</strong>

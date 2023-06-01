@@ -111,7 +111,7 @@ button:focus-visible {
 
 .single-comment {
   background-color: #26106d;
-  /* text-align: center; */
+  word-wrap: break-word;
 }
 
 .add-comment {
@@ -122,15 +122,14 @@ button:focus-visible {
 .form {
   display: flex;
   flex-direction: column;
-  
 }
 
 .users-list {
-  border: 2px solid blueviolet
+  border: 2px solid blueviolet;
 }
 
 .user-card {
-  border: 2px solid firebrick
+  border: 2px solid firebrick;
 }
 
 @media (prefers-color-scheme: light) {

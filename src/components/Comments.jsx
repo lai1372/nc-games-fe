@@ -20,12 +20,19 @@ const Comments = ({ review_id }) => {
   }
 
   if (!comments.length) {
-    return <p className="single-comment">No comments found for this review!</p>;
+    return (
+      <>
+        <p className="single-comment">No comments found for this review!</p>
+        <AddComment />
+      </>
+    );
   }
+  const dateConverter = (date) => {
+    return new Date(date).toLocaleDateString("en-US");
+  };
 
   return (
     <section className="comments-section">
-      <AddComment review_id={review_id} setComments={setComments} />
       <h2>Comments</h2>
       {comments.map((comment) => {
         return (
@@ -33,10 +40,11 @@ const Comments = ({ review_id }) => {
             <p>Written by: {comment.author}</p>
             <p>Comment: {comment.body}</p>
             <p>Votes: {comment.votes}</p>
-            <p>Post date: {comment.created_at}</p>
+            <p>Post date: {dateConverter(comment.created_at)}</p>
           </article>
         );
       })}
+      <AddComment review_id={review_id} setComments={setComments} />
     </section>
   );
 };
