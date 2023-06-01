@@ -7,7 +7,7 @@ const AddComment = ({ review_id, setComments }) => {
   const [errorMsgWhiteSpace, setErrorMsgWhiteSpace] = useState(null);
   const [errorMsgCharacter, setErrorMsgCharacter] = useState(null);
   const [characterLength, setCharacterLength] = useState(0);
-  const [buttonDisable, setButtonDisable] = useState(false)
+  const [buttonDisable, setButtonDisable] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,25 +28,25 @@ const AddComment = ({ review_id, setComments }) => {
     setNewComment("");
   };
 
-
   const handleCommentValidation = (event) => {
     const regex1 = /^\s*$/;
     const regex2 = /.{30,}/gi;
 
     if (regex1.test(event.target.value) === true) {
       setErrorMsgWhiteSpace("Please type something!");
-      setButtonDisable(true)
+      setButtonDisable(true);
     } else {
-        setButtonDisable(false)
+      setButtonDisable(false);
+      setErrorMsgWhiteSpace(null);
     }
     if (regex2.test(event.target.value) === false) {
       setErrorMsgCharacter("Please type more than 30 characters");
-      setButtonDisable(true)
+      setButtonDisable(true);
       setCharacterLength(event.target.value.length);
     } else {
-        setButtonDisable(false)
+      setButtonDisable(false);
+      setErrorMsgCharacter(null);
     }
-
   };
   return (
     <section className="add-comment">
