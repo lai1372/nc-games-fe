@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #f2d1d1;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,15 +31,18 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
+h1, h2, h3, h4 {
   line-height: 1.1;
+  color: black;
 }
 
 li {
   list-style-type: none;
+  color: black;
 }
-
+p{
+  color: #000000;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -48,7 +51,7 @@ button {
   font-weight: 500;
   max-width: 10em;
   font-family: inherit;
-  background-color: #6b6eb4;
+  background-color: #6c43ad;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -58,6 +61,14 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+label {
+  color:black;
+}
+
+#userComment {
+  background-color: white;
 }
 
 .header {
@@ -77,17 +88,21 @@ button:focus-visible {
 }
 
 .nav-link {
-  padding: 4px;
-  background-color: rgb(58, 156, 102);
+  padding: 9px;
+  background-color: rgb(244, 168, 189);
   margin: 5px;
   color: #000000;
+  border-radius: 12px;
 }
 
 .review-list {
-  border: 1px solid rgb(255, 255, 255);
+  border: 2px solid rgb(71, 52, 136);
   margin: 10px;
   padding: 5px;
   line-height: 0.7rem;
+  background-color: rgb(244, 219, 219);
+  border-radius: 25px;
+
 }
 
 .single-review-image {
@@ -110,7 +125,7 @@ button:focus-visible {
 }
 
 .single-comment {
-  background-color: #26106d;
+  background-color: #a18fde;
   word-wrap: break-word;
 }
 
