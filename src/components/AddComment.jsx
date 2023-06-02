@@ -43,7 +43,7 @@ const AddComment = ({ review_id, setComments }) => {
       setErrorMsgWhiteSpace(null);
     }
     if (regex2.test(event.target.value) === false) {
-      setErrorMsgCharacter("Please type more than 30 characters");
+      setErrorMsgCharacter("Please type more than 10 characters");
       setButtonDisable(true);
     } else {
       setButtonDisable(false);
