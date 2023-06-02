@@ -10,10 +10,16 @@ const fetchReviews = () => {
     .then((reviews) => {
       return reviews.data;
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => {});
 };
+
+const fetchUsers = () => {
+  return gamesApi
+  .get("/users")
+  .then((users)=>{
+    return users.data
+  })
+}
 
 const fetchReviewsById = (review_id) => {
   return gamesApi
@@ -22,7 +28,7 @@ const fetchReviewsById = (review_id) => {
       return review.data;
     })
     .catch((err) => {
-      console.log(err);
+      console.dir(err.response);
     });
 };
 
@@ -33,8 +39,38 @@ const fetchCommentsByReviewId = (review_id) => {
       return comments.data;
     })
     .catch((err) => {
-      console.log(err);
+      return err;
     });
 };
 
-export { fetchReviews, fetchReviewsById, fetchCommentsByReviewId };
+const patchReview = (review_id) => {
+  const patchBody = { inc_votes: 1 };
+  return gamesApi.patch(`/reviews/${review_id}`, patchBody).then((response) => {
+    return response;
+  });
+};
+
+const patchReviewDownVote = (review_id) => {
+  const patchBody = { inc_votes: -1 };
+  return gamesApi.patch(`/reviews/${review_id}`, patchBody).then((response) => {
+    return response;
+  });
+};
+
+const postComment = (review_id, body) => {
+  return gamesApi
+    .post(`/reviews/${review_id}/comments`, {username: body.username, body: body.body})
+    .then((response) => {
+      return response;
+    });
+};
+
+export {
+  fetchReviews,
+  fetchReviewsById,
+  fetchCommentsByReviewId,
+  patchReview,
+  patchReviewDownVote,
+  postComment,
+  fetchUsers
+};

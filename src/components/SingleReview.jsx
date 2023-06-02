@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviewsById } from "../../utils";
 import Comments from "./Comments";
+import UpVotes from "./UpVotes";
 
 const SingleReview = () => {
   const [review, setReview] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   let { review_id } = useParams();
-
   useEffect(() => {
     fetchReviewsById(review_id)
       .then((review) => {
@@ -16,7 +16,7 @@ const SingleReview = () => {
       .then(() => {
         setIsLoading(false);
       });
-  }, [review]);
+  }, [review_id]);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -32,7 +32,7 @@ const SingleReview = () => {
       <h3>Review by {review.owner}</h3>
       <h4>Category: {review.category}</h4>
       <p>{review.review_body}</p>
-      <p>Votes: {review.votes}</p>
+      <UpVotes review_id={review.review_id} review_votes={review.votes} />
       <Comments review_id={review_id} />
     </section>
   );

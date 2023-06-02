@@ -23,12 +23,12 @@ const Home = () => {
       <h2>All reviews ({reviews.length})</h2>
       {reviews.map((review) => {
         return (
-          <p className="review-list">
+          <section key={review.review_id} className="review-list">
             <p>Title: {review.title}</p>
             <p> Category: {review.category}</p>
             <p> By: {review.owner}</p>
-            <a href={`/reviews/${review.review_id}`}>Read full review</a>
-          </p>
+            <a href={`/reviews/${review.review_id}`}>Read full review </a>
+          </section>
         );
       })}
     </section>
