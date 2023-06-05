@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import Users from "./components/Users";
 import SingleReview from "./components/SingleReview";
+import FilteredReviews from "./components/FilteredReviews";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<Users />} />
         <Route path="/reviews/:review_id" element={<SingleReview />} />
+        <Route path="/:category" element={<FilteredReviews />} />
+
       </Routes>
     </>
   );

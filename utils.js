@@ -55,7 +55,7 @@ const postComment = (review_id, body) => {
 
 const fetchReviewsByCategory = (category) => {
   return gamesApi.get(`/reviews?category=${category}`).then((response) => {
-    // console.log(response.data);
+    console.log(response.data);
     return response.data;
   });
 };
@@ -64,6 +64,11 @@ const fetchCategories = () => {
   return gamesApi.get("/categories").then((response) => {
     return response.data.categories;
   });
+};
+
+const deleteComment = (comment_id) => {
+  console.log(comment_id);
+  return gamesApi.delete(`/comments/${comment_id}`);
 };
 
 export {
@@ -76,4 +81,5 @@ export {
   fetchUsers,
   fetchReviewsByCategory,
   fetchCategories,
+  deleteComment,
 };
