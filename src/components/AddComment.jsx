@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { postComment } from "../../utils";
 
-const AddComment = ({ review_id, setComments }) => {
-  const [newUsername, setNewUsername] = useState("grumpy19");
+const AddComment = ({ review_id, setComments, newUsername }) => {
   const [newComment, setNewComment] = useState("");
   const [errorMsgWhiteSpace, setErrorMsgWhiteSpace] = useState(null);
   const [errorMsgCharacter, setErrorMsgCharacter] = useState(null);

@@ -20,7 +20,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #a6a6dc;
 }
 
 body {
@@ -31,7 +31,10 @@ body {
   min-height: 100vh;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   line-height: 1.1;
   color: black;
 }
@@ -40,7 +43,7 @@ li {
   list-style-type: none;
   color: black;
 }
-p{
+p {
   color: #000000;
 }
 button {
@@ -56,7 +59,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #cdced6;
 }
 button:focus,
 button:focus-visible {
@@ -64,11 +67,12 @@ button:focus-visible {
 }
 
 label {
-  color:black;
+  color: black;
 }
 
 #userComment {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
 }
 
 .header {
@@ -87,12 +91,28 @@ label {
   border: 3px solid rgb(209, 62, 170);
 }
 
+.delete-comment {
+  background-color: transparent;
+}
+
 .nav-link {
   padding: 9px;
   background-color: rgb(244, 168, 189);
   margin: 5px;
   color: #000000;
   border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.categories {
+  padding: 9px;
+  background-color: green;
+  margin: 5px;
+  color: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .review-list {
@@ -102,7 +122,6 @@ label {
   line-height: 0.7rem;
   background-color: rgb(244, 219, 219);
   border-radius: 25px;
-
 }
 
 .single-review-image {
@@ -125,7 +144,7 @@ label {
 }
 
 .single-comment {
-  background-color: #a18fde;
+  background-color: #d1cbe3;
   word-wrap: break-word;
 }
 

@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
-import { fetchReviews } from "../../utils";
+import {
+  fetchReviews,
+} from "../../utils";
+import { useSearchParams } from "react-router-dom";
+import Categories from "./Categories";
 
 const Home = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+
 
   useEffect(() => {
     fetchReviews()
@@ -13,14 +19,16 @@ const Home = () => {
       .then(() => {
         setIsLoading(false);
       });
-  }, [reviews]);
+  }, []);
 
   if (isLoading) {
     return <p>Loading...</p>;
   }
+
   return (
     <section className="home">
-      <h2>All reviews ({reviews.length})</h2>
+      <Categories setReviews={setReviews}/>
+      <h3>Reviews ({reviews.length})</h3>
       {reviews.map((review) => {
         return (
           <section key={review.review_id} className="review-list">
